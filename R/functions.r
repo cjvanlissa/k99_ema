@@ -11,10 +11,10 @@ impute_full_dataset <- function(data) {
 
 name_variants <- function(formula) {
   variant_name <- "raw"
-  if (any(grepl("UMAP", as.character(formula))))
-    variant_name = "UMAP"
-  if (any(grepl("PCA", as.character(formula))))
+  if (any(grepl("PC_", as.character(formula))))
     variant_name = "PCA"
+  else if (any(grepl("UMAP_", as.character(formula))))
+    variant_name = "UMAP"
   paste0(as.character(formula[2]), "_", variant_name)
 }
 
